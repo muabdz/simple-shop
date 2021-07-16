@@ -5,4 +5,8 @@
     <string name="password">password</string>
     <string name="sign_in">Sign In</string>
     <string name="remember_me">Remember Me</string>
+    <string name="home">Home</string>
+    <string name="feed">Feed</string>
+    <string name="cart">Cart</string>
+    <string name="profile">Profile</string>
 </resources>
