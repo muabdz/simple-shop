@@ -20,7 +20,7 @@
             android:layout_height="24dp"
             android:layout_marginEnd="16dp"
             android:src="@drawable/ic_star_filled"
-            android:background="color/transparent"
+            android:background="@android:color/transparent"
             tools:ignore="ContentDescription" />
 
         <androidx.appcompat.widget.AppCompatEditText
