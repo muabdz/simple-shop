@@ -10,7 +10,7 @@ import com.muabdz.simpleshop.data.ProductEntity
 import com.muabdz.simpleshop.databinding.ActivityHomeBinding
 import com.muabdz.simpleshop.ui.MyApplication
 import com.muabdz.simpleshop.ui.productdetail.ProductDetailActivity
-import com.muabdz.simpleshop.ui.searchproduct.SearchProductActivity
+import com.muabdz.simpleshop.ui.productlist.searchproduct.SearchProductActivity
 import javax.inject.Inject
 
 class HomeActivity : AppCompatActivity(), ProductListCallback {

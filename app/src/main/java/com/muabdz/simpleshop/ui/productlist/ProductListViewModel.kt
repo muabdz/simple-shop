@@ -1,11 +1,11 @@
-package com.muabdz.simpleshop.ui.searchproduct
+package com.muabdz.simpleshop.ui.productlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.muabdz.simpleshop.data.ProductEntity
 
-class SearchProductViewModel: ViewModel() {
+class ProductListViewModel: ViewModel() {
 
     var products = MutableLiveData<List<ProductEntity>>()
 

@@ -1,4 +1,4 @@
-package com.muabdz.simpleshop.ui.searchproduct
+package com.muabdz.simpleshop.ui.productlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,7 +10,7 @@ import com.muabdz.simpleshop.data.ProductEntity
 import com.muabdz.simpleshop.databinding.ItemsProductsSearchBinding
 import com.muabdz.simpleshop.ui.home.ProductListCallback
 
-class SearchProductAdapter(private val callback: ProductListCallback): RecyclerView.Adapter<SearchProductAdapter.SearchProductViewHolder>() {
+class ProductListAdapter(private val callback: ProductListCallback): RecyclerView.Adapter<ProductListAdapter.SearchProductViewHolder>() {
 
     private var listProducts = ArrayList<ProductEntity>()
 

@@ -1,4 +1,4 @@
-package com.muabdz.simpleshop.ui.searchproduct
+package com.muabdz.simpleshop.ui.productlist.searchproduct
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -13,11 +13,13 @@ import com.muabdz.simpleshop.data.ProductEntity
 import com.muabdz.simpleshop.databinding.ActivitySearchProductBinding
 import com.muabdz.simpleshop.ui.home.ProductListCallback
 import com.muabdz.simpleshop.ui.productdetail.ProductDetailActivity
+import com.muabdz.simpleshop.ui.productlist.ProductListAdapter
+import com.muabdz.simpleshop.ui.productlist.ProductListViewModel
 import com.muabdz.simpleshop.utils.DummyData
 
 class SearchProductActivity : AppCompatActivity(), ProductListCallback {
     private lateinit var viewBinding: ActivitySearchProductBinding
-    private lateinit var viewModel: SearchProductViewModel
+    private lateinit var viewModel: ProductListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +32,7 @@ class SearchProductActivity : AppCompatActivity(), ProductListCallback {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
 
-        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[SearchProductViewModel::class.java]
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[ProductListViewModel::class.java]
 
         viewBinding.rvProducts.visibility = View.INVISIBLE
         viewModel.getProductList().observe(this, { products ->
@@ -67,7 +69,7 @@ class SearchProductActivity : AppCompatActivity(), ProductListCallback {
     }
 
     private fun populateSearchProducts(products: List<ProductEntity>) {
-        val productsAdapter = SearchProductAdapter(this)
+        val productsAdapter = ProductListAdapter(this)
         productsAdapter.setProducts(products)
         with(viewBinding.rvProducts) {
             layoutManager = LinearLayoutManager(this@SearchProductActivity)
