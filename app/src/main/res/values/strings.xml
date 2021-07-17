@@ -10,4 +10,6 @@
     <string name="cart">Cart</string>
     <string name="profile">Profile</string>
     <string name="wording_error">Error Occurred. Please Try Again.</string>
+    <string name="share">Share</string>
+    <string name="buy">Buy</string>
 </resources>
