@@ -1,4 +1,4 @@
-package com.muabdz.simpleshop.ui.home
+package com.muabdz.simpleshop.ui.productlist
 
 import com.muabdz.simpleshop.data.ProductEntity
 

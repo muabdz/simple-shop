@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.muabdz.simpleshop.R
 import com.muabdz.simpleshop.data.HomeDataEntity
 import com.muabdz.simpleshop.data.ProductEntity
 import com.muabdz.simpleshop.databinding.ActivityHomeBinding
 import com.muabdz.simpleshop.ui.MyApplication
 import com.muabdz.simpleshop.ui.productdetail.ProductDetailActivity
+import com.muabdz.simpleshop.ui.productlist.ProductListCallback
+import com.muabdz.simpleshop.ui.productlist.purchasehistory.PurchaseHistoryActivity
 import com.muabdz.simpleshop.ui.productlist.searchproduct.SearchProductActivity
 import javax.inject.Inject
 
@@ -39,6 +42,14 @@ class HomeActivity : AppCompatActivity(), ProductListCallback {
         viewBinding.searchBar.setOnClickListener {
             val intent = Intent(this, SearchProductActivity::class.java)
             startActivity(intent)
+        }
+
+        viewBinding.bottomNavigation.setOnItemSelectedListener { item ->
+            if (item.itemId == R.id.bn_profile) {
+                val intent = Intent(this@HomeActivity, PurchaseHistoryActivity::class.java)
+                startActivity(intent)
+            }
+            false
         }
     }
 

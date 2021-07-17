@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.muabdz.simpleshop.R
 import com.muabdz.simpleshop.data.ProductEntity
 import com.muabdz.simpleshop.databinding.ActivitySearchProductBinding
-import com.muabdz.simpleshop.ui.home.ProductListCallback
+import com.muabdz.simpleshop.ui.productlist.ProductListCallback
 import com.muabdz.simpleshop.ui.productdetail.ProductDetailActivity
 import com.muabdz.simpleshop.ui.productlist.ProductListAdapter
 import com.muabdz.simpleshop.ui.productlist.ProductListViewModel

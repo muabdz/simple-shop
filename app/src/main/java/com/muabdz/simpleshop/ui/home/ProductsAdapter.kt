@@ -9,6 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.muabdz.simpleshop.R
 import com.muabdz.simpleshop.data.ProductEntity
 import com.muabdz.simpleshop.databinding.ItemsProductsBinding
+import com.muabdz.simpleshop.ui.productlist.ProductListCallback
 
 class ProductsAdapter(private val callback: ProductListCallback): RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>() {
 
