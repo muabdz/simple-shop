@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET("home")
-    fun getApiData(): Call<GetDataResponse>
+    fun getApiData(): Call<List<GetDataResponse>>
 }

@@ -4,8 +4,20 @@ import com.google.gson.annotations.SerializedName
 
 data class GetDataResponse(
 
-	@field:SerializedName("GetDataResponse")
-	val getDataResponse: List<GetDataResponseItem>
+	@field:SerializedName("data")
+	val data: Data
+)
+
+data class CategoryItem(
+
+	@field:SerializedName("imageUrl")
+	val imageUrl: String,
+
+	@field:SerializedName("name")
+	val name: String,
+
+	@field:SerializedName("id")
+	val id: Int
 )
 
 data class Data(
@@ -36,22 +48,4 @@ data class ProductPromoItem(
 
 	@field:SerializedName("title")
 	val title: String
-)
-
-data class GetDataResponseItem(
-
-	@field:SerializedName("data")
-	val data: Data
-)
-
-data class CategoryItem(
-
-	@field:SerializedName("imageUrl")
-	val imageUrl: String,
-
-	@field:SerializedName("name")
-	val name: String,
-
-	@field:SerializedName("id")
-	val id: Int
 )
