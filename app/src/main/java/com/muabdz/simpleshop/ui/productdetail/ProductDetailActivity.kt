@@ -51,21 +51,6 @@ class ProductDetailActivity : AppCompatActivity(), View.OnClickListener {
         viewModel.product.postValue(productExtras)
     }
 
-    private fun populateProductDetail(product: ProductEntity) {
-        viewBinding.tvProductName.text = product.title
-        viewBinding.tvDescription.text = product.description
-        viewBinding.tvPrice.text = product.price
-        if (product.loved) {
-            viewBinding.ibFavorite.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_heart_filled))
-        } else {
-            viewBinding.ibFavorite.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_heart_outline))
-        }
-
-        Glide.with(this).load(product.imageUrl)
-            .apply(RequestOptions.placeholderOf(R.drawable.ic_image_loading)
-                .error(R.drawable.ic_image_error)).into(viewBinding.ivProduct)
-    }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.product_detail_menu, menu)
         return super.onCreateOptionsMenu(menu)
@@ -98,5 +83,20 @@ class ProductDetailActivity : AppCompatActivity(), View.OnClickListener {
                 // TODO: 17/07/2021 set onclick buy
             }
         }
+    }
+
+    private fun populateProductDetail(product: ProductEntity) {
+        viewBinding.tvProductName.text = product.title
+        viewBinding.tvDescription.text = product.description
+        viewBinding.tvPrice.text = product.price
+        if (product.loved) {
+            viewBinding.ibFavorite.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_heart_filled))
+        } else {
+            viewBinding.ibFavorite.setImageDrawable(AppCompatResources.getDrawable(this, R.drawable.ic_heart_outline))
+        }
+
+        Glide.with(this).load(product.imageUrl)
+            .apply(RequestOptions.placeholderOf(R.drawable.ic_image_loading)
+                .error(R.drawable.ic_image_error)).into(viewBinding.ivProduct)
     }
 }

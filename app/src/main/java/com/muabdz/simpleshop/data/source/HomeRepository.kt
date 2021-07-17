@@ -13,16 +13,6 @@ import javax.inject.Singleton
 @Singleton
 class HomeRepository @Inject constructor(private val remoteDataSource: RemoteDataSource): HomeDataSource {
 
-    companion object {
-
-        @Volatile
-        private var instance: HomeRepository? = null
-
-        fun getInstance(remoteDataSource: RemoteDataSource) =
-            instance ?: synchronized(this) {
-                instance ?: HomeRepository(remoteDataSource).apply { instance = this }
-            }
-    }
     override fun getHomeData(): LiveData<HomeDataEntity> {
         val homeData = MutableLiveData<HomeDataEntity>()
         remoteDataSource.getHomeData(object : RemoteDataSource.LoadHomeDataCallback {

@@ -8,17 +8,6 @@ import javax.inject.Inject
 
 class RemoteDataSource @Inject constructor() {
 
-    companion object {
-
-        @Volatile
-        private var instance: RemoteDataSource? = null
-
-        fun getInstance(): RemoteDataSource =
-            instance ?: synchronized(this) {
-                instance ?: RemoteDataSource().apply { instance = this }
-            }
-    }
-
     fun getHomeData(callback: LoadHomeDataCallback) {
         val client = ApiConfig.getApiService().getApiData()
         client.enqueue(object : Callback<List<GetDataResponse>> {
