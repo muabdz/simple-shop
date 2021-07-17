@@ -14,7 +14,7 @@
         android:icon="@drawable/ic_cart"
         android:title="@string/cart"/>
     <item
-        android:id="@+id/bn_Profile"
+        android:id="@+id/bn_profile"
         android:icon="@drawable/ic_profile"
         android:title="@string/profile"
         app:showAsAction=""/>

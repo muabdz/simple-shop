@@ -15,4 +15,5 @@
     <string name="wording_share_product">Buy %s at Simple Shop! Only %s!</string>
     <string name="share_this_product">Share this product</string>
     <string name="wording_empty_history">You haven\'t purchase anything yet.</string>
+    <string name="purchase_history">Purchase History</string>
 </resources>
