@@ -9,4 +9,5 @@
     <string name="feed">Feed</string>
     <string name="cart">Cart</string>
     <string name="profile">Profile</string>
+    <string name="wording_error">Error Occurred. Please Try Again.</string>
 </resources>
