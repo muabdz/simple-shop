@@ -10,6 +10,7 @@ import com.muabdz.simpleshop.data.ProductEntity
 import com.muabdz.simpleshop.databinding.ActivityHomeBinding
 import com.muabdz.simpleshop.ui.MyApplication
 import com.muabdz.simpleshop.ui.productdetail.ProductDetailActivity
+import com.muabdz.simpleshop.ui.searchproduct.SearchProductActivity
 import javax.inject.Inject
 
 class HomeActivity : AppCompatActivity(), ProductListCallback {
@@ -34,6 +35,11 @@ class HomeActivity : AppCompatActivity(), ProductListCallback {
                 viewBinding.tvError.visibility = View.VISIBLE
             }
         })
+
+        viewBinding.searchBar.setOnClickListener {
+            val intent = Intent(this, SearchProductActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onProductClicked(productEntity: ProductEntity) {
