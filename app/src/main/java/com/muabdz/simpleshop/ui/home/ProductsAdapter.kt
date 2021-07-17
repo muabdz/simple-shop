@@ -37,9 +37,9 @@ class ProductsAdapter: RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>()
             with(viewBinding) {
                 tvProductName.text = productEntity.title
                 if (productEntity.loved) {
-                    ibFavorite.setImageDrawable(AppCompatResources.getDrawable(itemView.context, R.drawable.ic_star_filled))
+                    ibFavorite.setImageDrawable(AppCompatResources.getDrawable(itemView.context, R.drawable.ic_heart_filled))
                 } else {
-                    ibFavorite.setImageDrawable(AppCompatResources.getDrawable(itemView.context, R.drawable.ic_star_outline))
+                    ibFavorite.setImageDrawable(AppCompatResources.getDrawable(itemView.context, R.drawable.ic_heart_outline))
                 }
                 ibFavorite.setOnClickListener {
                     productEntity.loved = !productEntity.loved
