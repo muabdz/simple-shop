@@ -10,7 +10,7 @@ import com.muabdz.simpleshop.R
 import com.muabdz.simpleshop.data.ProductEntity
 import com.muabdz.simpleshop.databinding.ItemsProductsBinding
 
-class ProductsAdapter: RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>() {
+class ProductsAdapter(private val callback: ProductListCallback): RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>() {
 
     private var listProducts = ArrayList<ProductEntity>()
 
@@ -41,12 +41,8 @@ class ProductsAdapter: RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>()
                 } else {
                     ibFavorite.setImageDrawable(AppCompatResources.getDrawable(itemView.context, R.drawable.ic_heart_outline))
                 }
-                ibFavorite.setOnClickListener {
-                    productEntity.loved = !productEntity.loved
-                    // TODO: 17/07/2021 notify adapter
-                }
                 itemView.setOnClickListener {
-                    // TODO: 17/07/2021 navigate to product detail
+                    callback.onProductClicked(productEntity)
                 }
                 Glide.with(itemView.context).load(productEntity.imageUrl)
                     .apply(RequestOptions.placeholderOf(R.drawable.ic_image_loading)

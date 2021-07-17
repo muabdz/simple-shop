@@ -1,15 +1,18 @@
 package com.muabdz.simpleshop.ui.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muabdz.simpleshop.data.HomeDataEntity
+import com.muabdz.simpleshop.data.ProductEntity
 import com.muabdz.simpleshop.databinding.ActivityHomeBinding
 import com.muabdz.simpleshop.ui.MyApplication
+import com.muabdz.simpleshop.ui.productdetail.ProductDetailActivity
 import javax.inject.Inject
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), ProductListCallback {
     private lateinit var viewBinding: ActivityHomeBinding
     @Inject lateinit var viewModel: HomeViewModel
 
@@ -33,6 +36,12 @@ class HomeActivity : AppCompatActivity() {
         })
     }
 
+    override fun onProductClicked(productEntity: ProductEntity) {
+        val intent = Intent(this, ProductDetailActivity::class.java)
+        intent.putExtra(ProductDetailActivity.EXTRAS_PRODUCT, productEntity)
+        startActivity(intent)
+    }
+
     private fun populateHome(homeDataEntity: HomeDataEntity) {
         val categoriesAdapter = CategoriesAdapter()
         categoriesAdapter.setCategories(homeDataEntity.categories)
@@ -41,7 +50,7 @@ class HomeActivity : AppCompatActivity() {
             setHasFixedSize(true)
             adapter = categoriesAdapter
         }
-        val productsAdapter = ProductsAdapter()
+        val productsAdapter = ProductsAdapter(this)
         productsAdapter.setProducts(homeDataEntity.products)
         with(viewBinding.rvProducts) {
             layoutManager = LinearLayoutManager(this@HomeActivity)
