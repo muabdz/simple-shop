@@ -21,15 +21,14 @@ class HomeActivity : AppCompatActivity() {
 
         setSupportActionBar(viewBinding.toolbar)
         viewBinding.progressBar.visibility = View.VISIBLE
-        viewBinding.gContent.visibility = View.INVISIBLE
+        viewBinding.nsvHome.visibility = View.INVISIBLE
         viewModel.getHomeData().observe(this, { homeData ->
             viewBinding.progressBar.visibility = View.GONE
             if (homeData.errorMessage.isNullOrEmpty()) {
-                viewBinding.gContent.visibility = View.VISIBLE
+                viewBinding.nsvHome.visibility = View.VISIBLE
                 populateHome(homeData)
             } else {
                 viewBinding.tvError.visibility = View.VISIBLE
-                viewBinding.tvError.setText("${viewBinding.tvError.text}\n${homeData.errorMessage}")
             }
         })
     }
