@@ -28,8 +28,10 @@
             android:name=".ui.productdetail.ProductDetailActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity
-            android:name=".ui.searchproduct.SearchProductActivity"
+            android:name=".ui.productlist.searchproduct.SearchProductActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+
+        <activity android:name="com.muabdz.simpleshop.ui.productlist.purchasehistory.PurchaseHistoryActivity"/>
     </application>
 
 </manifest>
