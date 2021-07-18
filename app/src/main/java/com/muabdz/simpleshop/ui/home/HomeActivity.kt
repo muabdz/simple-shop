@@ -14,6 +14,7 @@ import com.muabdz.simpleshop.ui.productdetail.ProductDetailActivity
 import com.muabdz.simpleshop.ui.productlist.ProductListCallback
 import com.muabdz.simpleshop.ui.productlist.purchasehistory.PurchaseHistoryActivity
 import com.muabdz.simpleshop.ui.productlist.searchproduct.SearchProductActivity
+import com.muabdz.simpleshop.utils.GlobalIdlingResource
 import javax.inject.Inject
 
 class HomeActivity : AppCompatActivity(), ProductListCallback {
@@ -29,6 +30,8 @@ class HomeActivity : AppCompatActivity(), ProductListCallback {
         setSupportActionBar(viewBinding.toolbar)
         viewBinding.progressBar.visibility = View.VISIBLE
         viewBinding.nsvHome.visibility = View.INVISIBLE
+        // TODO: 18/07/2021 code below is for testing purposes only, remove when app released
+        GlobalIdlingResource.increment()
         viewModel.getHomeData().observe(this, { homeData ->
             viewBinding.progressBar.visibility = View.GONE
             if (homeData.errorMessage.isNullOrEmpty()) {
@@ -36,6 +39,10 @@ class HomeActivity : AppCompatActivity(), ProductListCallback {
                 populateHome(homeData)
             } else {
                 viewBinding.tvError.visibility = View.VISIBLE
+            }
+            // TODO: 18/07/2021 code below is for testing purposes only, remove when app released
+            if (!GlobalIdlingResource.getIdlingResource().isIdleNow) {
+                GlobalIdlingResource.decrement()
             }
         })
 
