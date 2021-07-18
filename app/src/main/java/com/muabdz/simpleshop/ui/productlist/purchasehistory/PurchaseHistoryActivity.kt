@@ -14,6 +14,7 @@ import com.muabdz.simpleshop.ui.productlist.ProductListCallback
 import com.muabdz.simpleshop.ui.productdetail.ProductDetailActivity
 import com.muabdz.simpleshop.ui.productlist.ProductListAdapter
 import com.muabdz.simpleshop.ui.productlist.ProductListViewModel
+import com.orhanobut.hawk.Hawk
 
 class PurchaseHistoryActivity : AppCompatActivity(), ProductListCallback {
     private lateinit var viewBinding: ActivityPurchaseHistoryBinding
@@ -41,9 +42,12 @@ class PurchaseHistoryActivity : AppCompatActivity(), ProductListCallback {
                 populateProducts(products)
             }
         })
-        // TODO: 17/07/2021 get bought products from preference 
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.products.value = Hawk.get("purchasedProducts", ArrayList())
+    }
 
     override fun onProductClicked(productEntity: ProductEntity) {
         val intent = Intent(this, ProductDetailActivity::class.java)

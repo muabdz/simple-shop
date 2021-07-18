@@ -36,6 +36,7 @@ class ProductDetailActivity : AppCompatActivity(), View.OnClickListener {
         val productExtras = intent.getParcelableExtra<ProductEntity>(EXTRAS_PRODUCT)
 
         viewBinding.ibFavorite.setOnClickListener(this)
+        viewBinding.btnBuy.setOnClickListener(this)
         viewBinding.progressBar.visibility = View.VISIBLE
         viewBinding.gContent.visibility = View.INVISIBLE
 
@@ -80,7 +81,8 @@ class ProductDetailActivity : AppCompatActivity(), View.OnClickListener {
                 viewModel.product.postValue(product)
             }
             R.id.btn_buy -> {
-                // TODO: 17/07/2021 set onclick buy
+                viewModel.purchaseProduct()
+                finish()
             }
         }
     }
