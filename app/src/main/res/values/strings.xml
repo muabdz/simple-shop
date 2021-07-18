@@ -16,4 +16,7 @@
     <string name="share_this_product">Share this product</string>
     <string name="wording_empty_history">You haven\'t purchase anything yet.</string>
     <string name="purchase_history">Purchase History</string>
+    <string name="facebook_app_id"></string>
+    <string name="fb_login_protocol_scheme"></string>
+    <string name="wording_login_failed">Login failed, please try again.</string>
 </resources>
