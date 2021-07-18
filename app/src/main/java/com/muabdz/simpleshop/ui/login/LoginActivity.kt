@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.muabdz.simpleshop.databinding.ActivityLoginBinding
 import com.muabdz.simpleshop.ui.home.HomeActivity
+import com.orhanobut.hawk.Hawk
 
 class LoginActivity : AppCompatActivity() {
 
@@ -20,5 +21,6 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        Hawk.init(this).build()
     }
 }
